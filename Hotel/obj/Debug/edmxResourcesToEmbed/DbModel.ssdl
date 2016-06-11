@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище HotelModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Answer">
+    <Key>
+      <PropertyRef Name="NumberAnswer" />
+      <PropertyRef Name="NumberRecallFK" />
+      <PropertyRef Name="UserNumberFK" />
+    </Key>
+    <Property Name="NumberAnswer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateTimeAnswer" Type="datetime" Nullable="false" />
+    <Property Name="AnswerOnRecall" Type="nvarchar" MaxLength="550" Nullable="false" />
+    <Property Name="NumberRecallFK" Type="int" Nullable="false" />
+    <Property Name="UserNumberFK" Type="int" Nullable="false" />
+    <Property Name="IndividualNumberFK" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="IndividualNumber" />
+    </Key>
+    <Property Name="IndividualNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IdentifierPositionFK" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HotelUser">
+    <Key>
+      <PropertyRef Name="UserNumber" />
+    </Key>
+    <Property Name="UserNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="IdentifierPosition" />
+    </Key>
+    <Property Name="IdentifierPosition" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NamePosition" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Recall">
+    <Key>
+      <PropertyRef Name="NumberRecall" />
+      <PropertyRef Name="UserNumberFK" />
+    </Key>
+    <Property Name="NumberRecall" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+    <Property Name="TypeRecall" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="SubjectRecall" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="TopicRecall" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="550" Nullable="false" />
+    <Property Name="UserNumberFK" Type="int" Nullable="false" />
+    <Property Name="NumberRoomFK" Type="int" />
+    <Property Name="IndividualNumberFK" Type="int" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="NumberRoom" />
+    </Key>
+    <Property Name="NumberRoom" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeRoom" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FKIdentifierPosition">
+    <End Role="Position" Type="Self.Position" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="IdentifierPosition" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="IdentifierPositionFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKIndividualNumber">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Recall" Type="Self.Recall" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="IndividualNumber" />
+      </Principal>
+      <Dependent Role="Recall">
+        <PropertyRef Name="IndividualNumberFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKIndividualNumberAnswer">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Answer" Type="Self.Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="IndividualNumber" />
+      </Principal>
+      <Dependent Role="Answer">
+        <PropertyRef Name="IndividualNumberFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKNumberRoom">
+    <End Role="Room" Type="Self.Room" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Recall" Type="Self.Recall" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="NumberRoom" />
+      </Principal>
+      <Dependent Role="Recall">
+        <PropertyRef Name="NumberRoomFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKNumberUser">
+    <End Role="HotelUser" Type="Self.HotelUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Recall" Type="Self.Recall" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HotelUser">
+        <PropertyRef Name="UserNumber" />
+      </Principal>
+      <Dependent Role="Recall">
+        <PropertyRef Name="UserNumberFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKRecall">
+    <End Role="Recall" Type="Self.Recall" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Answer" Type="Self.Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recall">
+        <PropertyRef Name="NumberRecall" />
+        <PropertyRef Name="UserNumberFK" />
+      </Principal>
+      <Dependent Role="Answer">
+        <PropertyRef Name="NumberRecallFK" />
+        <PropertyRef Name="UserNumberFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище HotelModelContainer">
+    <EntitySet Name="Answer" EntityType="Self.Answer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HotelUser" EntityType="Self.HotelUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recall" EntityType="Self.Recall" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FKIdentifierPosition" Association="Self.FKIdentifierPosition">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FKIndividualNumber" Association="Self.FKIndividualNumber">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Recall" EntitySet="Recall" />
+    </AssociationSet>
+    <AssociationSet Name="FKIndividualNumberAnswer" Association="Self.FKIndividualNumberAnswer">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Answer" EntitySet="Answer" />
+    </AssociationSet>
+    <AssociationSet Name="FKNumberRoom" Association="Self.FKNumberRoom">
+      <End Role="Room" EntitySet="Room" />
+      <End Role="Recall" EntitySet="Recall" />
+    </AssociationSet>
+    <AssociationSet Name="FKNumberUser" Association="Self.FKNumberUser">
+      <End Role="HotelUser" EntitySet="HotelUser" />
+      <End Role="Recall" EntitySet="Recall" />
+    </AssociationSet>
+    <AssociationSet Name="FKRecall" Association="Self.FKRecall">
+      <End Role="Recall" EntitySet="Recall" />
+      <End Role="Answer" EntitySet="Answer" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

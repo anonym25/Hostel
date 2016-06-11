@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5285e91e72964aed90b40395fc7884e9" Name="Diagram1">
+        <EntityTypeShape EntityType="HotelModel.Answer" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelModel.Employee" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelModel.HotelUser" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelModel.Position" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelModel.Recall" Width="1.5" PointX="8.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelModel.Room" Width="1.5" PointX="6" PointY="7.625" IsExpanded="true" />
+        <AssociationConnector Association="HotelModel.FKIndividualNumberAnswer" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelModel.FKRecall" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelModel.FKIdentifierPosition" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelModel.FKIndividualNumber" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelModel.FKNumberUser" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelModel.FKNumberRoom" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
