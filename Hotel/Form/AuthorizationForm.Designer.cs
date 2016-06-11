@@ -33,13 +33,14 @@
             this.buttonEnter = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.viewButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // loginTextBox
             // 
             this.loginTextBox.Location = new System.Drawing.Point(80, 22);
             this.loginTextBox.Name = "loginTextBox";
-            this.loginTextBox.Size = new System.Drawing.Size(185, 20);
+            this.loginTextBox.Size = new System.Drawing.Size(158, 20);
             this.loginTextBox.TabIndex = 0;
             // 
             // passwordTextBox
@@ -47,7 +48,7 @@
             this.passwordTextBox.Location = new System.Drawing.Point(80, 59);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
-            this.passwordTextBox.Size = new System.Drawing.Size(185, 20);
+            this.passwordTextBox.Size = new System.Drawing.Size(158, 20);
             this.passwordTextBox.TabIndex = 1;
             // 
             // buttonEnter
@@ -87,12 +88,23 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Password";
             // 
+            // viewButton
+            // 
+            this.viewButton.Image = global::Hotel.Properties.Resources.previewer;
+            this.viewButton.Location = new System.Drawing.Point(244, 56);
+            this.viewButton.Name = "viewButton";
+            this.viewButton.Size = new System.Drawing.Size(30, 23);
+            this.viewButton.TabIndex = 5;
+            this.viewButton.UseVisualStyleBackColor = true;
+            this.viewButton.Click += new System.EventHandler(this.viewButton_Click);
+            // 
             // AuthorizationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Hotel.Properties.Resources.authorization;
             this.ClientSize = new System.Drawing.Size(277, 155);
+            this.Controls.Add(this.viewButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonEnter);
@@ -113,5 +125,6 @@
         private System.Windows.Forms.Button buttonEnter;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button viewButton;
     }
 }

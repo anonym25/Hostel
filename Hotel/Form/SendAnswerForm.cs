@@ -28,16 +28,20 @@ namespace Hotel
 
         private void sendButton_Click(object sender, EventArgs e)
         {
-            DaoEmployee daoEmployee = new DaoEmployee();
-            Employee employee = daoEmployee.GetEmployeeOnSurname(Data.context, Data.stringValue);
-            Answer answer = Data.context.Answers.Add(new Answer { AnswerOnRecall = answerTextBox.Text, Recall = recall, Employee = employee, DateTimeAnswer = Convert.ToDateTime(DateTime.Now.ToString("yyyy'-'MM'-'dd HH':'mm':'ss'.'fff")) });
-            Data.context.SaveChanges();
-            if (recall.HotelUser.Email != "")
+            if (answerTextBox.Text != "")
             {
-                SendMail sendMail = new SendMail();
-                sendMail.SendMails(recall.HotelUser.Email, answerTextBox.Text);
+                DaoEmployee daoEmployee = new DaoEmployee();
+                Employee employee = daoEmployee.GetEmployeeOnSurname(Data.context, Data.stringValue);
+                Answer answer = Data.context.Answers.Add(new Answer { AnswerOnRecall = answerTextBox.Text, Recall = recall, Employee = employee, DateTimeAnswer = Convert.ToDateTime(DateTime.Now.ToString("yyyy'-'MM'-'dd HH':'mm':'ss'.'fff")) });
+                Data.context.SaveChanges();
+                if (recall.HotelUser.Email != "")
+                {
+                    SendMail sendMail = new SendMail();
+                    sendMail.SendMails(recall.HotelUser.Email, answerTextBox.Text);
+                }
+                this.Close();
             }
-            this.Close();
+            else MessageBox.Show("Введите ответ");
         }
 
     }

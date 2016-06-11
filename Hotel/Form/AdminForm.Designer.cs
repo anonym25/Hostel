@@ -34,6 +34,8 @@
             this.просмотрКнигиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.РаботаСДаннмиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сведенияОСистемеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.информацияОРазработчикахToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recallBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.recallBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hotelDataSet1 = new Hotel.HotelDataSet1();
@@ -56,8 +58,6 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.recallTableAdapter = new Hotel.HotelDataSet1TableAdapters.RecallTableAdapter();
             this.tableAdapterManager = new Hotel.HotelDataSet1TableAdapters.TableAdapterManager();
-            this.сведенияОСистемеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.информацияОРазработчикахToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.recallBindingNavigator)).BeginInit();
             this.recallBindingNavigator.SuspendLayout();
@@ -101,6 +101,20 @@
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
             this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.справкаToolStripMenuItem.Text = "Справка";
+            // 
+            // сведенияОСистемеToolStripMenuItem
+            // 
+            this.сведенияОСистемеToolStripMenuItem.Name = "сведенияОСистемеToolStripMenuItem";
+            this.сведенияОСистемеToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.сведенияОСистемеToolStripMenuItem.Text = "Сведения о системе";
+            this.сведенияОСистемеToolStripMenuItem.Click += new System.EventHandler(this.сведенияОСистемеToolStripMenuItem_Click);
+            // 
+            // информацияОРазработчикахToolStripMenuItem
+            // 
+            this.информацияОРазработчикахToolStripMenuItem.Name = "информацияОРазработчикахToolStripMenuItem";
+            this.информацияОРазработчикахToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.информацияОРазработчикахToolStripMenuItem.Text = "Информация о разработчиках";
+            this.информацияОРазработчикахToolStripMenuItem.Click += new System.EventHandler(this.информацияОРазработчикахToolStripMenuItem_Click);
             // 
             // recallBindingNavigator
             // 
@@ -296,20 +310,6 @@
             this.tableAdapterManager.SuperUserTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Hotel.HotelDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // сведенияОСистемеToolStripMenuItem
-            // 
-            this.сведенияОСистемеToolStripMenuItem.Name = "сведенияОСистемеToolStripMenuItem";
-            this.сведенияОСистемеToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.сведенияОСистемеToolStripMenuItem.Text = "Сведения о системе";
-            this.сведенияОСистемеToolStripMenuItem.Click += new System.EventHandler(this.сведенияОСистемеToolStripMenuItem_Click);
-            // 
-            // информацияОРазработчикахToolStripMenuItem
-            // 
-            this.информацияОРазработчикахToolStripMenuItem.Name = "информацияОРазработчикахToolStripMenuItem";
-            this.информацияОРазработчикахToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.информацияОРазработчикахToolStripMenuItem.Text = "Информация о разработчиках";
-            this.информацияОРазработчикахToolStripMenuItem.Click += new System.EventHandler(this.информацияОРазработчикахToolStripMenuItem_Click);
-            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -323,6 +323,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AdminForm";
             this.Text = "Книга жалоб и предложений гостиницы";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminForm_FormClosing);
             this.Load += new System.EventHandler(this.AdminForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

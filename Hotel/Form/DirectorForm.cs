@@ -299,13 +299,6 @@ namespace Hotel
                 daoAnswer.DeleteAnswer(Data.context, Convert.ToInt16(answerDataGridView.Rows[answerDataGridView.CurrentCell.RowIndex].Cells[0].Value.ToString()));
             work.PrintAnswer(answerDataGridView);
         }
-
-        private void DirectorForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (Data.adminValue)
-                Data.adminValue = false;
-        }
-
         private void сведенияОСистемеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -326,6 +319,15 @@ namespace Hotel
         private void информацияОРазработчикахToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Выпускная квалификационная работа бакалавра по теме: \n«АВТОМАТИЗИРОВАННАЯ СИСТЕМА «КНИГА ЖАЛОБ И ПРЕДЛОЖЕНИЙ ГОСТИНИЦЫ». \nВыполнила студентка группы 6402Б358: Назарова А.Н. \nРуководитель проекта: Соловьева Я.В.");
+        }
+
+        private void просмотрКнигиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Hide();
+            BookPreviewForm bookPreviewForm = new BookPreviewForm();
+            bookPreviewForm.Owner = this;
+            bookPreviewForm.ShowDialog();
+            Show();
         }
     }
 }

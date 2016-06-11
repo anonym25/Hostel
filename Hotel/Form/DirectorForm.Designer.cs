@@ -699,6 +699,7 @@
             this.просмотрКнигиToolStripMenuItem.Name = "просмотрКнигиToolStripMenuItem";
             this.просмотрКнигиToolStripMenuItem.Size = new System.Drawing.Size(111, 20);
             this.просмотрКнигиToolStripMenuItem.Text = "Просмотр книги";
+            this.просмотрКнигиToolStripMenuItem.Click += new System.EventHandler(this.просмотрКнигиToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem
             // 
@@ -737,7 +738,6 @@
             this.Name = "DirectorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Работа с данными";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DirectorForm_FormClosing);
             this.Load += new System.EventHandler(this.DirectorForm_Load);
             this.directorTabControl.ResumeLayout(false);
             this.positionPage.ResumeLayout(false);

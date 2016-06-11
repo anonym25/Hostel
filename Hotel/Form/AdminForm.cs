@@ -72,11 +72,16 @@ namespace Hotel
         {
             Data.adminValue = true;
             Hide();
-            this.Close();
             DirectorForm directorForm = new DirectorForm();
             directorForm.Owner = this;
             directorForm.ShowDialog();
             Show();
+        }
+
+        private void AdminForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Data.adminValue)
+                Data.adminValue = false;
         }
     }
 }

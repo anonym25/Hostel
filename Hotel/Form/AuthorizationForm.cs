@@ -46,5 +46,13 @@ namespace Hotel
                 MessageBox.Show("Введите данные для авторизации");
             else MessageBox.Show("Вы ввели неверный login или password");
         }
+
+        private void viewButton_Click(object sender, EventArgs e)
+        {
+            if (passwordTextBox.PasswordChar == Convert.ToChar(042))
+                passwordTextBox.PasswordChar = '\0';
+            else passwordTextBox.PasswordChar = Convert.ToChar(042);
+            passwordTextBox.Focus();
+        }
     }
 }
