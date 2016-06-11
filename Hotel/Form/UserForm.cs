@@ -74,6 +74,8 @@ namespace Hotel
                 commentTextbox.Text = "";
                 emailTextbox.Text = "";
                 emailRadioNo.Checked = true;
+                staffComboBox.Enabled = false;
+                emailTextbox.Enabled = false;
             }
             else MessageBox.Show("Заполните обязательное поле Имя");
         }

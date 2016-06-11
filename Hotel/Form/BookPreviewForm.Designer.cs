@@ -96,6 +96,7 @@
             this.bookDataGridView.ReadOnly = true;
             this.bookDataGridView.Size = new System.Drawing.Size(989, 386);
             this.bookDataGridView.TabIndex = 1;
+            this.bookDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bookDataGridView_CellDoubleClick);
             // 
             // TopicRecallColumn
             // 

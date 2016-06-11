@@ -193,5 +193,18 @@ namespace Hotel
         {
             employeeCheckBox.Checked = false;
         }
+
+        private void bookDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            List<Recall> listRecalls = daoRecall.GetRecall(Data.context);
+            foreach(Recall recall in listRecalls)
+                if (recall.TopicRecall == bookDataGridView.CurrentRow.Cells[0].Value.ToString())
+                    Data.intValue = recall.NumberRecall;
+            Hide();
+            ViewRecallForm viewForm = new ViewRecallForm();
+            viewForm.Owner = this;
+            viewForm.ShowDialog();
+            Show();
+        }
     }
 }

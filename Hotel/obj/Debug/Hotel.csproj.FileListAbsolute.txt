@@ -17,3 +17,4 @@ C:\Users\Анастасия\documents\visual studio 2013\Projects\Hotel\Hotel\bi
 C:\Users\Анастасия\documents\visual studio 2013\Projects\Hotel\Hotel\obj\Debug\Hotel.csprojResolveAssemblyReference.cache
 C:\Users\Анастасия\documents\visual studio 2013\Projects\Hotel\Hotel\obj\Debug\Hotel.BookPreviewForm.resources
 C:\Users\Анастасия\documents\visual studio 2013\Projects\Hotel\Hotel\obj\Debug\Hotel.DirectorForm.resources
+C:\Users\Анастасия\documents\visual studio 2013\Projects\Hotel\Hotel\obj\Debug\Hotel.ViewRecallForm.resources

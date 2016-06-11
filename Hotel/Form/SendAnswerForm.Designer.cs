@@ -58,7 +58,7 @@
             this.sendButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sendButton.Location = new System.Drawing.Point(543, 403);
             this.sendButton.Name = "sendButton";
-            this.sendButton.Size = new System.Drawing.Size(128, 57);
+            this.sendButton.Size = new System.Drawing.Size(128, 53);
             this.sendButton.TabIndex = 2;
             this.sendButton.Text = "Ответить";
             this.sendButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

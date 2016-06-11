@@ -157,6 +157,12 @@
     <Compile Include="Form\UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\ViewRecallForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ViewRecallForm.Designer.cs">
+      <DependentUpon>ViewRecallForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WorkDataGridView.cs" />
     <EmbeddedResource Include="Form\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
@@ -180,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\ViewRecallForm.resx">
+      <DependentUpon>ViewRecallForm.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="DbModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
